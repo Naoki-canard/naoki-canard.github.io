@@ -36,7 +36,7 @@
 
                     <p>Ce portfolio présente quelques-uns de mes travaux et projets réalisés au cours de mes études. Vous y trouverez des exemples de mes compétences en programmation ainsi que des projets que j'ai dirigés ou auxquels j'ai contribué. Mon objectif est de continuer à m'améliorer et à acquérir de nouvelles compétences dans ce domaine.</p>
                     
-                    <p>Merci de prendre le temps de parcourir mon portfolio. N'hésitez pas à me contacter pour toute question ou collaboration future. </br>Pour me contacter cliquez <a href="/mnt/netta/users/nabe/Portfolio/autresPages/pageFormulaire.html">ici</a></p>
+                    <p>Merci de prendre le temps de parcourir mon portfolio. N'hésitez pas à me contacter pour toute question ou collaboration future. </br>Pour me contacter cliquez <a href="https://naoki-canard.github.io/autresPages/pageFormulaire.html">ici</a></p>
                 </div>
             </div>
         </div>
