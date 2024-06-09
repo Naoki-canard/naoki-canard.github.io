@@ -1,5 +1,5 @@
 # naoki-canard.github.io
-<!DOCTYPE html>
+# <!DOCTYPE html>
 <html lang="fr">
 <head>
 
@@ -15,7 +15,7 @@
         <div id="home"></div>
         
         <ul class="navbar">
-            <li><a href="https://naoki-canard.github.io/portfolio.html">Home</a></li>
+            <li><a href="#profil">Home</a></li>
               <li><a href="#projet">Projet</a></li>
               <li><a href="#information">Contact</a></li>
         </ul>
