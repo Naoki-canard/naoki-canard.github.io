@@ -15,7 +15,7 @@
         <div id="home"></div>
         
         <ul class="navbar">
-            <li><a href="/mnt/netta/users/nabe/Portfolio/portfolio.html">Home</a></li>
+            <li><a href="https://naoki-canard.github.io/portfolio.html">Home</a></li>
               <li><a href="#projet">Projet</a></li>
               <li><a href="#information">Contact</a></li>
         </ul>
@@ -91,11 +91,11 @@
         <div id="information">
         <div id="contact">
             <h3>CONTACTS</h3>
-            <ul>
-                <li><a href="/mnt/netta/users/nabe/Portfolio/autresPages/pageFormulaire.html">tel (33)333333333</a></li>
-                <li><a href="/mnt/netta/users/nabe/Portfolio/autresPages/pageFormulaire.html">fax (33)333333333</a></li>
-                <li><a href="/mnt/netta/users/nabe/Portfolio/autresPages/pageFormulaire.html">Forum/questions</a></li>
-                <li><a href="/mnt/netta/users/nabe/Portfolio/autresPages/pageFormulaire.html">Envoyer un mail</a></li>
+           <ul>
+                <li><a href="https://naoki-canard.github.io/autresPages/pageFormulaire.html">tel (33)333333333</a></li>
+                <li><a href="https://naoki-canard.github.io/autresPages/pageFormulaire.html">fax (33)333333333</a></li>
+                <li><a href="https://naoki-canard.github.io/autresPages/pageFormulaire.html">Forum/questions</a></li>
+                <li><a href="https://naoki-canard.github.io/autresPages/pageFormulaire.html">Envoyer un mail</a></li>
                 
             </ul>
         </div>
@@ -103,7 +103,7 @@
             <h3 >MENTIONS LÉGALES</h3>
             <ul>
                 <li><p> Conformément aux dispositions de l'article 6III-1 de la loi n°2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, cette page reprend les mentions légales et conditions générales d'utilisation du site.
-              <a href="/mnt/netta/users/nabe/Portfolio/autresPages/pageFormulaire.html">plus d'informations</a></p>
+              <a href="https://naoki-canard.github.io/autresPages/pageFormulaire.html">plus d'informations</a></p>
                 </li>
             </ul>
           </div>  
