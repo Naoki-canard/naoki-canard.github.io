@@ -56,6 +56,22 @@
   background-color: #666;
   color: white;
 }
+
+/*AAAAA*/
+.modal-dialog {
+        max-width: 90%; /* Augmente la largeur maximale */
+        width: 90%; /* Largeur relative à l'écran */
+    }
+    .modal-body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #modalImage {
+        max-width: 100%; /* Empêche le dépassement horizontal */
+        max-height: 90vh; /* Empêche le dépassement vertical */
+        object-fit: contain; /* Ajuste l'image pour qu'elle s'adapte bien */
+    }
     </style>
 </head>
 
@@ -70,37 +86,46 @@
     <button class="btn" onclick="filterSelection('python')"> Python</button>
     <button class="btn" onclick="filterSelection('js')"> Java script</button>
     <button class="btn" onclick="filterSelection('html')"> Html</button>
+    <button class="btn" onclick="filterSelection('symfony')"> Symfony</button>
     <button class="btn" onclick="filterSelection('sql')"> SQL</button>
     <button class="btn" onclick="filterSelection('bash')"> Bash</button>
     <button class="btn" onclick="filterSelection('gestion')"> Gestion</button>
   </div>
   
   <!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories) -->
-  <div class="container py-5">
-
-    <div class="filterDiv java">
-        <div class="filterDiv java col-auto filter-item filterDiv cars mb-3" onclick="openModal(this)">
-            <div class="card"><img src="/images/retex1.png" alt="BMW"></div>
+      <div class="container py-5">
+        <div class="filterDiv gestion symfony">
+          <div class="filterDiv gestion symfony col-auto filter-item filterDiv cars mb-3" onclick="openModal(this)">
+              <div class="card"><img src="/images/retex6.png" alt="BMW"></div>
+          </div>
+      </div>
+      <div class="filterDiv gestion ">
+        <div class="filterDiv gestion symfony col-auto filter-item filterDiv cars mb-3" onclick="openModal(this)">
+            <div class="card"><img src="/images/retex7.png" alt="BMW"></div>
         </div>
     </div>
-
+      <div class="filterDiv gestion">
+        <div class="filterDiv gestion col-auto filter-item filterDiv cars mb-3" onclick="openModal(this)">
+            <div class="card"><img src="/images/retex4.png" alt="BMW"></div>
+        </div>
+    </div>
     <div class="filterDiv html js">
         <div class="filterDiv html js col-auto filter-item filterDiv cars mb-3" onclick="openModal(this)">
             <div class="card"><img src="/images/retex2.png" alt="BMW"></div>
         </div>
     </div>
-    
+    <div class="filterDiv java">
+      <div class="filterDiv java col-auto filter-item filterDiv cars mb-3" onclick="openModal(this)">
+          <div class="card"><img src="/images/retex1.png" alt="BMW"></div>
+      </div>
+  </div>
     <div class="filterDiv bash">
         <div class="filterDiv bash col-auto filter-item filterDiv cars mb-3" onclick="openModal(this)">
             <div class="card"><img src="/images/retex3.png" alt="BMW"></div>
         </div>
     </div>
 
-    <div class="filterDiv gestion">
-        <div class="filterDiv gestion col-auto filter-item filterDiv cars mb-3" onclick="openModal(this)">
-            <div class="card"><img src="/images/retex4.png" alt="BMW"></div>
-        </div>
-    </div>
+    
 
     <div class="filterDiv java">
         <div class="filterDiv java col-auto filter-item filterDiv cars mb-3" onclick="openModal(this)">
@@ -108,11 +133,12 @@
         </div>
     </div>
 
+    
   </div>
 </div>
    <!-- Modal -->
    <div class="modal fade" id="imageModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered ">
         <div class="modal-content">
             <div class="modal-body p-0">
                 <img id="modalImage" src="" class="img-fluid" alt="Image agrandie">
