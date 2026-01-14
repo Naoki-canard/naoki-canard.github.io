@@ -268,6 +268,12 @@
             overflow: hidden;
         }
 
+        .see-project {
+    color: whitesmoke;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
         .modal-content img {
             width: 100%;
             height: auto;
@@ -381,10 +387,12 @@
                 <h3>Récemment :</h3>
                 <p>
                     - Une application d'éditeur graphique de géométries geo-référencées (en react avec les librairies turf et leaflet). 
+
     
                 </p>
                 <p>
-                    - Un Site web et sa base de données qui gère le traçage des bugs afin de faciliter la circulation des résolutions entre administrateurs, étudiants et professeurs. Sur un support mobile et ordinateur.
+                    - Un Site web et sa base de données qui gère le traçage des bugs afin de faciliter la circulation des résolutions entre administrateurs, étudiants et professeurs. Sur un support mobile et ordinateur. 
+                    <a href="#" class="see-project" onclick="openModalBySrc('./images/retexIUTissuesReport.png')"> voir ce projet</a>
                     
                 
             </div>
@@ -558,6 +566,14 @@
                 }
             });
         });
+
+        function openModalBySrc(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+
+            modalImg.src = imageSrc;
+            modal.classList.add('show');
+        }
     </script>
 </body>
 </html>
