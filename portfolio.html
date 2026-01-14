@@ -2,98 +2,563 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Portfolio ABE Naoki</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="map.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <title>Portfolio ABE Naoki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-    /* Custom CSS for Geochat */
-body {
-    background-color: #f8f9fa;
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
 
-.navbar-brand img {
-    margin-right: 10px;
-}
+        /* Navigation */
+        nav {
+            background-color: #6c757d;
+            padding: 1rem 0;
+            margin-bottom: 1.5rem;
+        }
 
-.nav-link {
-    color: rgba(255,255,255,0.8);
-    transition: color 0.3s ease;
-}
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-.nav-link:hover {
-    color: white;
-}
+        .nav-brand {
+            color: white;
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
 
-.container {
-    max-width: 1200px;
-}
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
+        .nav-menu a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-</style>
+        .nav-menu a:hover {
+            color: white;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Section Accueil */
+        .home-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .home-content {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .home-content h1 {
+            margin-bottom: 1rem;
+            color: #212529;
+        }
+
+        .home-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #495057;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #212529;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #0066cc;
+        }
+
+        .social-links img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .home-sidebar {
+            flex: 1;
+            min-width: 300px;
+            background-color: #6c757d;
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .home-sidebar h3 {
+            margin-bottom: 1rem;
+        }
+
+        .home-sidebar p {
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: white;
+            color: #212529;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #e9ecef;
+        }
+
+        /* Section Projets */
+        .projects-section {
+            padding: 3rem 0;
+        }
+
+        .projects-section h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #212529;
+        }
+
+        /* Filtres */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            border: none;
+            outline: none;
+            padding: 12px 16px;
+            background-color: #f1f1f1;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background-color: #ddd;
+        }
+
+        .filter-btn.active {
+            background-color: #666;
+            color: white;
+        }
+
+        /* Grille de projets */
+        .projects-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .project-item {
+            display: none;
+            margin: 0.5rem;
+        }
+
+        .project-item.show {
+            display: block;
+        }
+
+        .project-card {
+            border-radius: 15px;
+            width: 200px;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            max-height: 90vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                margin-top: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li {
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+
+            .home-section {
+                flex-direction: column;
+            }
+
+            .project-card {
+                width: 150px;
+            }
+
+            .project-card img {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .project-card {
+                transition: transform 0.5s;
+            }
+
+            .project-card:hover {
+                transform: scale(1.3);
+                z-index: 2;
+            }
+        }
+    </style>
 </head>
-<body class="mb-4">
-    <nav class="navbar navbar-expand-lg bg-secondary navbar-dark mb-3">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                Accueil
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Projets</a>
-                    </li>
-                </ul>
-            </div>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="nav-brand">Accueil</a>
+            <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <!-- <li><a href="">CV</a></li>
+                <li><a href="#projects">Projets</a></li>
+                 -->
+            </ul>
         </div>
     </nav>
 
-    <div class="container">
-
-        <div class="row align-items-center my-5 m-2">
-
-            <div class="col-lg-6 text-center p-3">
-               <h1>Bienvenue sur le portfolio de ABE Naoki ! </h1>
-                    <p>
-                    Je suis étudiante en BUT Informatique à Gradignan, je suis passionnée par la conception de base de données et la gestion de projet.             
-                    </p>
-                    <a  href="https://gitlab-ce.iut.u-bordeaux.fr/nabe">
-                        <img src="/images/gitLabLogo.png" width="32" alt="Logo Gitlab">
+    <!-- Section Accueil -->
+    <div class="container" id="home">
+        <div class="home-section">
+            <div class="home-content">
+                <h1>Bienvenue sur le portfolio de ABE Naoki !</h1>
+                <p>
+                    Je suis étudiante en BUT Informatique à l'université Bordeaux-Gradignan, je suis passionnée par la conception de base de données et la gestion de projet. 
+                </p>
+                <!-- <div class="social-links">
+                    <a href="https://gitlab-ce.iut.u-bordeaux.fr/nabe">
+                        <img src="/images/gitLabLogo.png" alt="Logo Gitlab">
                         Voir Gitlab
                     </a>
-                    <br>
-                    <a  href="https://www.linkedin.com/in/naoki-abe-b91628333">
-                        <img src="/images/LinkedInLogo.png" width="32" alt="Logo LinkedIn">
+                    <a href="https://www.linkedin.com/in/naoki-abe-b91628333">
+                        <img src="/images/LinkedInLogo.png" alt="Logo LinkedIn">
                         Voir LinkedIn
                     </a>
-                    
-                
-
+                </div> -->
             </div>
-
-            <div class="col-lg-6 bg-secondary navbar-dark text-white p-4 rounded-3 shadow mt-4 mt-lg-0">
+            <div class="home-sidebar" onclick="openModal(this)">
                 <h3>Récemment :</h3>
                 <p>
-                    - Un Site web qui gère une compétition de robot (Framework Symfony et Tailwind).
+                    - Une application d'éditeur graphique de géométries geo-référencées (en react avec les librairies turf et leaflet). 
+    
                 </p>
                 <p>
-                    - Conception du système d’information TurboTiming, destiné à la diffusion et la gestion des emplois du temps universitaires.
-                </p>
+                    - Un Site web et sa base de données qui gère le traçage des bugs afin de faciliter la circulation des résolutions entre administrateurs, étudiants et professeurs. Sur un support mobile et ordinateur.
+                    
                 
-                <a href="/autresPages/compProjet.html" class="btn btn-light mt-3">
-                    Voir tous mes projets
-                    <svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8.354 3.646a.5.5 0 0 1 .707 0l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.293 8 8.354 5.354a.5.5 0 0 1 0-.708z"/>
-                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-                    </svg>
-                </a>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Section Projets -->
+    <div class="container projects-section" id="projects">
+        <h1>Mes Projets</h1>
+        
+        <!-- Filtres -->
+        <div class="filter-container" id="filterContainer">
+            <button class="filter-btn active" onclick="filterSelection('all')">Tout</button>
+            <button class="filter-btn" onclick="filterSelection('java')">Java</button>
+            <button class="filter-btn" onclick="filterSelection('python')">Python</button>
+            <button class="filter-btn" onclick="filterSelection('js')">JavaScript</button>
+            <button class="filter-btn" onclick="filterSelection('html')">HTML</button>
+            <button class="filter-btn" onclick="filterSelection('symfony')">Symfony</button>
+            <button class="filter-btn" onclick="filterSelection('sql')">SQL</button>
+            <button class="filter-btn" onclick="filterSelection('bash')">Bash</button>
+            <button class="filter-btn" onclick="filterSelection('gestion')">Gestion</button>
+        </div>
+
+        <!-- Grille de projets -->
+        <div class="projects-grid">
+            <div class="project-item gestion symfony" onclick="openModal(this)" id="HT">
+                <div class="project-card">
+                    <img src="/images/retexHT.png" alt="Retex jeu de société Hansa Teutonica">
+                </div>
+            </div>
+
+            <div class="project-item js sql" onclick="openModal(this)" id="'issuesReport">
+                <div class="project-card">
+                    <img src="/images/retexIUTissuesReport.png" alt="IUT Issues Report">
+                </div>
+            </div>
+
+            <div class="project-item gestion symfony" onclick="openModal(this)">
+                <div class="project-card">
+                    <img src="/images/retex6.png" alt="Projet Gestion Symfony">
+                </div>
+            </div>
+
+            <div class="project-item gestion" onclick="openModal(this)">
+                <div class="project-card">
+                    <img src="/images/retex7.png" alt="Projet Gestion">
+                </div>
+            </div>
+
+            <div class="project-item gestion" onclick="openModal(this)">
+                <div class="project-card">
+                    <img src="/images/retex4.png" alt="Projet Gestion">
+                </div>
+            </div>
+
+            <div class="project-item html js" onclick="openModal(this)">
+                <div class="project-card">
+                    <img src="/images/retex2.png" alt="Projet HTML JS">
+                </div>
+            </div>
+
+            <div class="project-item java" onclick="openModal(this)">
+                <div class="project-card">
+                    <img src="/images/retex1.png" alt="Projet Java">
+                </div>
+            </div>
+
+            <div class="project-item bash" onclick="openModal(this)">
+                <div class="project-card">
+                    <img src="/images/retex3.png" alt="Projet Bash">
+                </div>
+            </div>
+
+            <div class="project-item java" onclick="openModal(this)">
+                <div class="project-card">
+                    <img src="/images/retex5.png" alt="Projet Java">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="imageModal" onclick="closeModal(event)">
+        <span class="modal-close" onclick="closeModal(event)">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Image agrandie">
+        </div>
+    </div>
+
+    <script>
+        // Toggle menu mobile
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Ouvrir le modal
+        function openModal(element) {
+            const img = element.querySelector('img');
+            const modalImg = document.getElementById('modalImage');
+            const modal = document.getElementById('imageModal');
+            
+            modalImg.src = img.src;
+            modal.classList.add('show');
+        }
+
+        // Fermer le modal
+        function closeModal(event) {
+            const modal = document.getElementById('imageModal');
+            const modalContent = modal.querySelector('.modal-content');
+            
+            // Fermer seulement si on clique en dehors du contenu ou sur le bouton X
+            if (event.target === modal || event.target.classList.contains('modal-close')) {
+                modal.classList.remove('show');
+            }
+        }
+
+        // Initialiser les filtres
+        filterSelection("all");
+
+        function filterSelection(category) {
+            const items = document.getElementsByClassName("project-item");
+            
+            // Afficher tous les éléments si "all" est sélectionné
+            if (category === "all") {
+                for (let i = 0; i < items.length; i++) {
+                    items[i].classList.add("show");
+                }
+            } else {
+                // Sinon, afficher seulement les éléments de la catégorie
+                for (let i = 0; i < items.length; i++) {
+                    items[i].classList.remove("show");
+                    if (items[i].classList.contains(category)) {
+                        items[i].classList.add("show");
+                    }
+                }
+            }
+
+            // Mettre à jour les boutons actifs
+            updateActiveButton(event.target);
+        }
+
+        function updateActiveButton(clickedButton) {
+            const buttons = document.getElementsByClassName("filter-btn");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+            if (clickedButton) {
+                clickedButton.classList.add("active");
+            }
+        }
+
+        // Gérer les clics sur les boutons de filtre
+        const filterContainer = document.getElementById('filterContainer');
+        const buttons = filterContainer.getElementsByClassName('filter-btn');
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener('click', function() {
+                updateActiveButton(this);
+            });
+        }
+
+        // Navigation smooth
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
