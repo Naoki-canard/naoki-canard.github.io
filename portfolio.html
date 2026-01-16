@@ -5,358 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="map.png">
     <title>Portfolio ABE Naoki</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #f8f9fa;
-            line-height: 1.6;
-        }
-
-        /* Navigation */
-        nav {
-            background-color: #6c757d;
-            padding: 1rem 0;
-            margin-bottom: 1.5rem;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-brand {
-            color: white;
-            text-decoration: none;
-            font-size: 1.25rem;
-            font-weight: bold;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            color: white;
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* Section Accueil */
-        .home-section {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin: 3rem 0;
-            flex-wrap: wrap;
-        }
-
-        .home-content {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-            padding: 1.5rem;
-        }
-
-        .home-content h1 {
-            margin-bottom: 1rem;
-            color: #212529;
-        }
-
-        .home-content p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: #495057;
-        }
-
-        .social-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #212529;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #0066cc;
-        }
-
-        .social-links img {
-            width: 32px;
-            height: 32px;
-        }
-
-        .home-sidebar {
-            flex: 1;
-            min-width: 300px;
-            background-color: #6c757d;
-            color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .home-sidebar h3 {
-            margin-bottom: 1rem;
-        }
-
-        .home-sidebar p {
-            margin-bottom: 1rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: white;
-            color: #212529;
-            padding: 0.75rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 1rem;
-        }
-
-        .btn:hover {
-            background-color: #e9ecef;
-        }
-
-        /* Section Projets */
-        .projects-section {
-            padding: 3rem 0;
-        }
-
-        .projects-section h1 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #212529;
-        }
-
-        /* Filtres */
-        .filter-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .filter-btn {
-            border: none;
-            outline: none;
-            padding: 12px 16px;
-            background-color: #f1f1f1;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover {
-            background-color: #ddd;
-        }
-
-        .filter-btn.active {
-            background-color: #666;
-            color: white;
-        }
-
-        /* Grille de projets */
-        .projects-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .project-item {
-            display: none;
-            margin: 0.5rem;
-        }
-
-        .project-item.show {
-            display: block;
-        }
-
-        .project-card {
-            width: auto;   /* ≈ 3 cm */
-            height: auto;  /* ≈ 4 cm */
-            border-radius: 15px;
-            cursor: pointer;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal.show {
-            display: flex;
-        }
-
-        .modal-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90vh;
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .see-project {
-    color: whitesmoke;
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-        .modal-content img {
-            width: 100%;
-            height: auto;
-            max-height: 90vh;
-            object-fit: contain;
-            display: block;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            color: white;
-            font-size: 35px;
-            font-weight: bold;
-            cursor: pointer;
-            background-color: rgba(0, 0, 0, 0.5);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-        }
-
-        .modal-close:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-toggle {
-                display: block;
-            }
-
-            .nav-menu {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                gap: 0;
-                margin-top: 1rem;
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .nav-menu li {
-                text-align: center;
-                padding: 0.5rem 0;
-            }
-
-            .home-section {
-                flex-direction: column;
-            }
-
-            .project-card {
-                width: 150px;
-            }
-
-            .project-card img {
-                height: 150px;
-            }
-        }
-
-        @media (max-width: 700px) {
-            .project-card {
-                transition: transform 0.5s;
-            }
-
-            .project-card:hover {
-                transform: scale(1.3);
-                z-index: 2;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#home" class="nav-brand">Accueil</a>
+            <a href="" class="nav-brand">Accueil</a>
             <!-- <button class="nav-toggle" onclick="toggleMenu()">☰</button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="./images/CV_ABE_Naoki_2026.pdf" download="CV_ABE_Naoki.pdf">Télécharger CV</a></li>
@@ -364,9 +19,10 @@
         </div>
     </nav>
 
-    <!-- Section Accueil -->
+    
     <div class="container" id="home">
         <div class="home-section">
+
             <div class="home-content">
                 <h1>Bienvenue sur le portfolio de ABE Naoki !</h1>
                 <p>
@@ -383,7 +39,7 @@
                     </a>
                 </div> -->
             </div>
-            <div class="home-sidebar" onclick="openModal(this)">
+            <div class="home-sidebar">
                 <h3>Récemment :</h3>
                 <p>
                     - Une application d'éditeur graphique de géométries geo-référencées (en react avec les librairies turf et leaflet). 
@@ -416,7 +72,7 @@
             <button class="filter-btn" onclick="filterSelection('gestion')">Gestion</button>
         </div>
 
-        <!-- Grille de projets -->
+        <!-- Retex de projets -->
         <div class="projects-grid">
             <div class="project-item gestion symfony python" onclick="openModal(this)" id="HT">
                 <div class="project-card">
@@ -483,13 +139,7 @@
     </div>
 
     <script>
-        // Toggle menu mobile
-        function toggleMenu() {
-            const navMenu = document.getElementById('navMenu');
-            navMenu.classList.toggle('active');
-        }
-
-        // Ouvrir le modal
+        //Ouvrir le modal
         function openModal(element) {
             const img = element.querySelector('img');
             const modalImg = document.getElementById('modalImage');
